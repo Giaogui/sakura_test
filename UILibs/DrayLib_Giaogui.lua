@@ -1,72 +1,64 @@
--- DrayLib_Giaogui.lua (CORRECTED & WORKING)
+-- DrayLib_Giaogui.lua (SAFE / STABLE)
 
 local CoreGui = game:GetService("CoreGui")
 
--- destroy old
 pcall(function()
     CoreGui.DrRay:Destroy()
 end)
 
 local Library = {}
 
--- create gui
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "DrRay"
-ScreenGui.Parent = CoreGui
+-- UI root
+local Gui = Instance.new("ScreenGui")
+Gui.Name = "DrRay"
+Gui.Parent = CoreGui
 
-local Main = Instance.new("Frame")
-Main.Parent = ScreenGui
-Main.Size = UDim2.fromScale(0.4, 0.5)
-Main.Position = UDim2.fromScale(0.3, 0.25)
+local Main = Instance.new("Frame", Gui)
+Main.Size = UDim2.new(0, 400, 0, 300)
+Main.Position = UDim2.new(0.5, -200, 0.5, -150)
 Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 
-local UIStroke = Instance.new("UIStroke", Main)
-UIStroke.Color = Color3.fromRGB(80, 80, 80)
+local Content = Instance.new("Frame", Main)
+Content.Size = UDim2.new(1, -20, 1, -20)
+Content.Position = UDim2.new(0, 10, 0, 10)
+Content.BackgroundTransparency = 1
 
-local TabsContainer = Instance.new("Frame", Main)
-TabsContainer.Size = UDim2.new(1, 0, 1, -40)
-TabsContainer.Position = UDim2.new(0, 0, 0, 40)
-TabsContainer.BackgroundTransparency = 1
+local Layout = Instance.new("UIListLayout", Content)
+Layout.Padding = UDim.new(0, 6)
 
-local TabsLayout = Instance.new("UIListLayout", TabsContainer)
-TabsLayout.Padding = UDim.new(0, 6)
-
--- ===== API =====
-
+-- API
 function Library:Load(title, theme)
     local Window = {}
 
     function Window:NewTab(name, icon)
-        local TabFrame = Instance.new("Frame")
-        TabFrame.Parent = TabsContainer
-        TabFrame.Size = UDim2.new(1, -10, 0, 200)
-        TabFrame.BackgroundTransparency = 1
-
-        local layout = Instance.new("UIListLayout", TabFrame)
-        layout.Padding = UDim.new(0, 6)
-
         local Tab = {}
 
         function Tab:NewLabel(text)
             local Label = Instance.new("TextLabel")
-            Label.Parent = TabFrame
-            Label.Size = UDim2.new(1, -10, 0, 30)
+            Label.Parent = Content
+            Label.Size = UDim2.new(1, 0, 0, 30)
             Label.BackgroundTransparency = 1
-            Label.TextColor3 = Color3.new(1, 1, 1)
-            Label.TextWrapped = true
+            Label.TextColor3 = Color3.new(1,1,1)
             Label.Text = text
         end
 
         function Tab:NewButton(text, desc, callback)
             local Button = Instance.new("TextButton")
-            Button.Parent = TabFrame
-            Button.Size = UDim2.new(1, -10, 0, 32)
-            Button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-            Button.TextColor3 = Color3.new(1, 1, 1)
+            Button.Parent = Content
+            Button.Size = UDim2.new(1, 0, 0, 30)
+            Button.BackgroundColor3 = Color3.fromRGB(50,50,50)
+            Button.TextColor3 = Color3.new(1,1,1)
             Button.Text = text
 
-            Button.MouseButton1Click:Connect(function()
-                if type(callback) == "function" then
-                    callback()
-                end
-            end)
+            if type(callback) == "function" then
+                Button.MouseButton1Click:Connect(callback)
+            end
+        end
+
+        return Tab
+    end
+
+    return Window
+end
+
+return Library
