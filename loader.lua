@@ -1,76 +1,92 @@
--- Giaogui Hub Loader (FIXED & CLEAN)
+-- // Giaogui Hub Loader (RECODE‑STYLE FIXED) 🌸 --
 
 warn(">>> Giaogui Loader EXECUTED <<<")
 
--- Wait for game to fully load
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
--- Base URL for HttpGet
+-- ========== BASE URLS ========== --
 local BASE = "https://raw.githubusercontent.com/Giaogui/sakura_test/main"
+local UILIB = BASE .. "/UILibs"
 
--- Safe loader function
-local function safeLoad(url, name)
-    warn("Loading:", name)
-    local ok, lib = pcall(function()
-        return loadstring(game:HttpGet(url))()
-    end)
-    if not ok then
-        warn("FAILED loading", name, lib)
-        return nil
+-- safeHttpGet that doesn’t crash
+local function safeHttpGet(url)
+    local ok, res = pcall(function() return game:HttpGet(url) end)
+    if ok and type(res) == "string" and #res > 10 then
+        return res
     end
-    if not lib then
-        warn(name, "returned nil")
-        return nil
-    end
-    return lib
+    warn("HttpGet failed:", url)
+    return nil
 end
 
--- Load main UI library
-local DrRayLibrary = safeLoad(BASE .. "/UILibs/DrayLib_Giaogui.lua", "DrayLib")
-if not DrRayLibrary then
-    warn("DrRayLibrary failed to load. Aborting.")
+-- load DrayLib and BoredLib
+local DrRayLibrary = nil
+local BoredLibrary = nil
+
+do
+    local drayCode = safeHttpGet(UILIB .. "/DrayLib_Giaogui.lua")
+    if drayCode then
+        DrRayLibrary = loadstring(drayCode)()
+    end
+
+    local boredCode = safeHttpGet(UILIB .. "/BoredLib_Giaogui.lua")
+    if boredCode then
+        BoredLibrary = loadstring(boredCode)()
+    end
+end
+
+if not DrRayLibrary or not BoredLibrary then
+    warn("Failed to load UI libraries — check URLs in your repo!")
     return
 end
 
-warn("Creating main window...")
+-- Recreate StartLoading pattern from original
+getgenv().StartLoading = function(z)
+    return function(x)
+        return function()
+            if getgenv()[z] == true then
+                if type(getgenv()[x]) == "function" then
+                    task.spawn(getgenv()[x])
+                end
+            end
+        end
+    end
+end
 
--- Create main window
+-- Main Window
 local Window
-local ok, err = pcall(function()
-    Window = DrRayLibrary:Load("Giaogui Hub 🌸", "Default")
-end)
-if not ok or not Window then
-    warn("FAILED to create main window:", err)
-    return
+do
+    local ok, err = pcall(function()
+        Window = DrRayLibrary:Load("Giaogui Hub 🌸", "Default")
+    end)
+    if not ok or not Window then
+        warn("FAILED to create main window:", err)
+        return
+    end
 end
 
-warn("Main window created")
-
--- Create Home tab
+-- Home Tab
 local HomeTab
-local okTab, errTab = pcall(function()
-    HomeTab = Window:NewTab("Home", "http://www.roblox.com/asset/?id=9405923687")
-end)
-if not okTab or not HomeTab then
-    warn("FAILED to create Home tab:", errTab)
-    return
+do
+    local status, result = pcall(function()
+        HomeTab = Window:NewTab("Home", "http://www.roblox.com/asset/?id=9405923687")
+    end)
+    if not status or not HomeTab then
+        warn("FAILED to create Home tab:", result)
+        return
+    end
 end
 
-warn("Home tab created")
-
--- Add example label
 HomeTab:NewLabel("Giaogui Hub Loaded Successfully ✅")
 
--- Add Animation Grabber button
+-- Animation Grabber Button
 HomeTab:NewButton("Animation Grabber", "Utility", function()
-    warn("Animation Grabber pressed")
-    local okAnim, errAnim = pcall(function()
-        loadstring(game:HttpGet(BASE .. "/utils/AnimGrabber.lua"))()
-    end)
-    if not okAnim then
-        warn("Failed to load Animation Grabber:", errAnim)
+    local animCode = safeHttpGet(BASE .. "/utils/AnimGrabber.lua")
+    if animCode then
+        loadstring(animCode)()
+    else
+        warn("Failed to load AnimGrabber")
     end
 end)
 
