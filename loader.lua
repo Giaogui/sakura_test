@@ -4,7 +4,7 @@
 -- This script updates a lot, Use this loadstring to be in the latest version:
 
 getgenv().ToggleUI = "J" -- //  Key Toggle "J" set by default however you can change it.
-getgenv().SakuraHub = "https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/loader.lua"; <- Script Source
+getgenv().SakuraHub = "https://raw.githubusercontent.com/Giaogui/SakuraHub_RECODE/refs/heads/main/loader.lua"; <- Script Source
 
 pcall(function()
     loadstring(game:HttpGet(getgenv().SakuraHub))();
@@ -199,8 +199,8 @@ for i,v in ipairs(game:GetService("Lighting"):GetChildren()) do
 end
 
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
-local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/DrayLib.lua"))();
-local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/BoredLib.lua"))();
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/DrayLib.lua"))();
+local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/BoredLib.lua"))();
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
 
 getgenv().StartLoading = function(z)
@@ -5778,7 +5778,7 @@ end)
 
 HomeTab.newLabel("Quick Scripts   🚀");
 HomeTab.newButton("Animation Grabber","",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/utils/AnimGrabber"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/utils/AnimGrabber.lua"))();
 end)
 
 HomeTab.newButton("Infinite Yield","",function()
