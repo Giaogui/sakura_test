@@ -1,10 +1,10 @@
- -- // Sakura Hub 🌸 \\ -- | ( Legacy Version: 1.31 | Recode Version: 1.72 ) [ Made by Mommy Flames? or Lvl9999 :3 / Recoded by T1k ^^ ]
+ -- // Giaogui Hub 🌸 \\ -- | ( Legacy Version: 1.31 | Recode Version: 1.72 ) [ Made by Mommy Flames? or Lvl9999 :3 / Recoded by T1k ^^ ]
 
 --[[---------------------------------------------------------------------------------------------------
 -- This script updates a lot, Use this loadstring to be in the latest version:
 
 getgenv().ToggleUI = "J" -- //  Key Toggle "J" set by default however you can change it.
-getgenv().SakuraHub = "https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/loader.lua"; <- Script Source
+getgenv().SakuraHub = "https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/loader.lua"; <- Script Source
 
 pcall(function()
     loadstring(game:HttpGet(getgenv().SakuraHub))();
@@ -180,7 +180,7 @@ getgenv().Configurations = function()
         -- [Game UI Scripts]
         getgenv().CloseAnnoyingButtons = false;
         
-        -- [Sakura Hub UI Scripts]
+        -- [Giaogui Hub UI Scripts]
         getgenv().AutoGoingRainbow = false;
         game:GetService("CoreGui").StatisticsGUI.Enabled = false;
     end)
@@ -199,8 +199,8 @@ for i,v in ipairs(game:GetService("Lighting"):GetChildren()) do
 end
 
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
-local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/DrayLib.lua"))();
-local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/BoredLib.lua"))();
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/DrayLib_Giaogui.lua"))();
+local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/BoredLib_Giaogui.lua"))();
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
 
 getgenv().StartLoading = function(z)
@@ -218,9 +218,9 @@ end
 getgenv().ResetConfigurations = function()
     if isfile("Sakura_Hub_config.txt") then
         delfile("Sakura_Hub_config.txt");
-        BoredLibrary.prompt("Sakura Hub 🌸","Configurations Deleted!",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Configurations Deleted!",1.5);
     else
-        BoredLibrary.prompt("Sakura Hub 🌸","Configurations Doesn't Exist...",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Configurations Doesn't Exist...",1.5);
     end
 end
 
@@ -232,7 +232,7 @@ getgenv().SaveConfigurations = function()
         end
     end
     writefile("Sakura_Hub_config.txt",Data);
-    BoredLibrary.prompt("Sakura Hub 🌸","Configurations Saved!",1.5);
+    BoredLibrary.prompt("Giaogui Hub 🌸","Configurations Saved!",1.5);
 end
 
 getgenv().LoadConfigurations = function()
@@ -244,7 +244,7 @@ getgenv().LoadConfigurations = function()
                 getgenv()[Key] = (Val == "true");
             end
         end
-        BoredLibrary.prompt("Sakura Hub 🌸","Configurations Loaded!",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Configurations Loaded!",1.5);
 
         task.spawn(getgenv().StartLoading("WalkspeedBypass")("SuperSpeed"));
         task.spawn(getgenv().StartLoading("JumpPowerBypass")("SuperJump"));
@@ -338,7 +338,7 @@ getgenv().LoadConfigurations = function()
         task.spawn(getgenv().StartLoading("AutoDealingDamage")("QuestDealDamage"));
         task.spawn(getgenv().StartLoading("CloseAnnoyingButtons")("CloseAnnoyingButtons"))
     else
-        BoredLibrary.prompt("Sakura Hub 🌸","Configurations Not Found...",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Configurations Not Found...",1.5);
     end
 end
 
@@ -2611,8 +2611,8 @@ getgenv().UsingDekuFarmMain = function()
         if selectedPlayer then
             getgenv().ThePlayerWhoSupports = selectedPlayer
             playerSelectionUI:Destroy()
-            BoredLibrary.prompt("Sakura Hub", "Preparation Step Completed 1/1", 1.5)
-            BoredLibrary.prompt("Sakura Hub", "✅ Summoner selected!", 1.0)
+            BoredLibrary.prompt("Giaogui Hub", "Preparation Step Completed 1/1", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "✅ Summoner selected!", 1.0)
             local root = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
             if root then 
                 root.CFrame = CFrame.new(-1212, -150, -324) 
@@ -2620,7 +2620,7 @@ getgenv().UsingDekuFarmMain = function()
             completed = true
             selectionCompletedEvent:Fire()
         else
-            BoredLibrary.prompt("Sakura Hub", "⚠️ Select a player first!", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "⚠️ Select a player first!", 1.5)
         end
     end)
 
@@ -3211,7 +3211,7 @@ getgenv().UsingDekuFarmMain = function()
             
             -- Основной цикл
             pcall(function()
-                BoredLibrary.prompt("Sakura Hub", "Starting Wait For Bosses...", 1.5)
+                BoredLibrary.prompt("Giaogui Hub", "Starting Wait For Bosses...", 1.5)
             end)
             
             -- Определяем персонажа в начале
@@ -3430,14 +3430,14 @@ getgenv().UsingDekuFarmAlt = function()
         if selectedPlayerKiller then
             getgenv().ThePlayerWhoKills = selectedPlayerKiller
             killerSelectionUI:Destroy()
-            BoredLibrary.prompt("Sakura Hub", "Preparation Step Completed 1/1", 1.5)
-            BoredLibrary.prompt("Sakura Hub", "✅ Killer selected!", 1.0)
+            BoredLibrary.prompt("Giaogui Hub", "Preparation Step Completed 1/1", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "✅ Killer selected!", 1.0)
             local root = Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
             if root then root.CFrame = CFrame.new(-1252, -150, -320) end
             killerSelectionCompleted = true
             killerSelectionCompletedEvent:Fire()
         else
-            BoredLibrary.prompt("Sakura Hub", "⚠️ Select a player first!", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "⚠️ Select a player first!", 1.5)
         end
     end)
 
@@ -3541,7 +3541,7 @@ getgenv().UsingDekuFarmAlt = function()
             -- Отключаем основные циклы
             getgenv().AutoFarmDekuAlt = false
             
-            BoredLibrary.prompt("Sakura Hub", reason, 3.0)
+            BoredLibrary.prompt("Giaogui Hub", reason, 3.0)
             
             -- Возвращаемся на оригинальную позицию
             teleportTo(OriginalPosition)
@@ -3568,7 +3568,7 @@ getgenv().UsingDekuFarmAlt = function()
                             
                             -- Игрок вернулся
                             print("Selected player returned! Resuming farm...")
-                            BoredLibrary.prompt("Sakura Hub", "✅ Selected player returned! Resuming farm...", 2.0)
+                            BoredLibrary.prompt("Giaogui Hub", "✅ Selected player returned! Resuming farm...", 2.0)
                             isWaitingForPlayerReturn = false
                             
                             -- Перезапускаем нужные процессы
@@ -4123,17 +4123,17 @@ getgenv().UsingDekuFarmAlt = function()
         
         local correctStand = getCorrectStand()
         if getCurrentStand() ~= correctStand then
-            BoredLibrary.prompt("Sakura Hub", "Equipping " .. correctStand .. "...", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "Equipping " .. correctStand .. "...", 1.5)
             
             if not equipStand(correctStand) then
-                BoredLibrary.prompt("Sakura Hub", "You do not have " .. correctStand .. " ❌", 2.0)
+                BoredLibrary.prompt("Giaogui Hub", "You do not have " .. correctStand .. " ❌", 2.0)
                 getgenv().AutoFarmDekuAlt = false
                 teleportTo(OriginalPosition)
                 return
             end
             
             if not waitForStandChange(correctStand, 50) then
-                BoredLibrary.prompt("Sakura Hub", "Failed to equip " .. correctStand .. " ❌", 2.0)
+                BoredLibrary.prompt("Giaogui Hub", "Failed to equip " .. correctStand .. " ❌", 2.0)
                 getgenv().AutoFarmDekuAlt = false
                 teleportTo(OriginalPosition)
                 return
@@ -4141,7 +4141,7 @@ getgenv().UsingDekuFarmAlt = function()
         end
         
         teleportTo(WaitBossDiePos)
-        BoredLibrary.prompt("Sakura Hub", "Boss summoning started! 🎯", 1.5)
+        BoredLibrary.prompt("Giaogui Hub", "Boss summoning started! 🎯", 1.5)
         
         pcall(function()
             local spawnPrompt = Workspace.Map.RuinedCity.Spawn.ProximityPrompt
@@ -4173,7 +4173,7 @@ getgenv().UsingDekuFarmAlt = function()
                     if not isWaitingForGrace then
                         isWaitingForGrace = true
                         print("OA's Grace detected! Teleporting and collecting...")
-                        BoredLibrary.prompt("Sakura Hub", "🎯 OA's Grace detected! Collecting...", 2.0)
+                        BoredLibrary.prompt("Giaogui Hub", "🎯 OA's Grace detected! Collecting...", 2.0)
                         
                         teleportTo(grace.Position)
                         task.wait(0.03)
@@ -4341,7 +4341,7 @@ getgenv().UsingDekuFarmAlt = function()
             graceCollectionInProgress = false
             
             teleportTo(OriginalPosition)
-            BoredLibrary.prompt("Sakura Hub", "Boss summoning stopped! 🛑", 1.5)
+            BoredLibrary.prompt("Giaogui Hub", "Boss summoning stopped! 🛑", 1.5)
         end)
         
     end
@@ -4998,17 +4998,17 @@ getgenv().StealingOneForAll = function()
                             end
                         else
                             if not Prompt then
-                                BoredLibrary.prompt("Sakura Hub 🌸","Waiting for Kuzma To Spawn",1.5);Prompt = true;
+                                BoredLibrary.prompt("Giaogui Hub 🌸","Waiting for Kuzma To Spawn",1.5);Prompt = true;
                             end  
                         end
                     else
                         if not Prompt then
-                            BoredLibrary.prompt("Sakura Hub 🌸","Mastery is not Enough",1.5);Prompt = true;
+                            BoredLibrary.prompt("Giaogui Hub 🌸","Mastery is not Enough",1.5);Prompt = true;
                         end
                     end
                 else
                     if not Prompt then
-                        BoredLibrary.prompt("Sakura Hub 🌸","You are not Standless",1.5);Prompt = true;
+                        BoredLibrary.prompt("Giaogui Hub 🌸","You are not Standless",1.5);Prompt = true;
                     end
                 end
             end)
@@ -5444,7 +5444,7 @@ getgenv().QuestDealDamage = function()
 end
 
 getgenv().LoadConfigurations();
-local MainWindow = DrRayLibrary:Load("Sakura Hub   🌸","Default");
+local MainWindow = DrRayLibrary:Load("Giaogui Hub   🌸","Default");
 local HomeTab = DrRayLibrary.newTab("Home","http://www.roblox.com/asset/?id=9405923687");
 
 -- // Apply Custom UI Color \\ --
@@ -5458,28 +5458,28 @@ game:GetService("CoreGui").DrRay.TopBar.TopBarClose.BackgroundTransparency = 0.5
 game:GetService("CoreGui").DrRay.TopBar.TopBarClose.idk.Visible = false;
 
 -- // Loaded Notification \\ --
-BoredLibrary.prompt("Sakura Hub 🌸","Current Version: "..getgenv().CurrentVersion,1.5);
+BoredLibrary.prompt("Giaogui Hub 🌸","Current Version: "..getgenv().CurrentVersion,1.5);
 ------------------------------------------------[[ UI Code Logic Start ]]------------------------------------------------
 HomeTab.newLabel("Script Hub Credits   ✨");
 HomeTab.newButton("Script Made by Flames","",function()
     local Cheers = "http://www.roblox.com/asset/?id=1617624223"
     local Sound = Instance.new("Sound");Sound.Name = "Sound";Sound.SoundId = Cheers
     Sound.Volume = 10;Sound.Looped = false;Sound.Archivable = false;Sound.Parent = game.Workspace;Sound:Play();
-    BoredLibrary.prompt("Sakura Hub   🌸","Thank you Mommy Flames <3",1.5);
+    BoredLibrary.prompt("Giaogui Hub   🌸","Thank you Mommy Flames <3",1.5);
 end)
 
 HomeTab.newButton("Gui Library Made by Chillz","",function()
     local LoudFarts = "http://www.roblox.com/asset/?id=6811876591"
     local Sound = Instance.new("Sound");Sound.Name = "Sound";Sound.SoundId = LoudFarts
     Sound.Volume = 10;Sound.Looped = false;Sound.Archivable = false;Sound.Parent = game.Workspace;Sound:Play();
-    BoredLibrary.prompt("Sakura Hub   🌸","Thank you Daddy Chillz <3",0.5);
+    BoredLibrary.prompt("Giaogui Hub   🌸","Thank you Daddy Chillz <3",0.5);
 end)
 
 HomeTab.newButton("Notify Library Made by Bored","",function()
     local LoudFarts = "http://www.roblox.com/asset/?id=6811876591"
     local Sound = Instance.new("Sound");Sound.Name = "Sound";Sound.SoundId = LoudFarts
     Sound.Volume = 10;Sound.Looped = false;Sound.Archivable = false;Sound.Parent = game.Workspace;Sound:Play();
-    BoredLibrary.prompt("Sakura Hub   🌸","Thank you Daddy Bored <3",0.5);
+    BoredLibrary.prompt("Giaogui Hub   🌸","Thank you Daddy Bored <3",0.5);
 end)
 
 HomeTab.newLabel("Local Player Scripts   📢");
@@ -5721,64 +5721,64 @@ local Code7 = "OmatsuriMambo"; local Desc7 = "500 Tokens"
 local Code8 = "MamboIncident"; local Desc8 = "1000 Tokens"
 
 HomeTab.newButton('Use Code: "'..Code1..'"', Desc1, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code1, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code1, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code1)
 end)
 
 HomeTab.newButton('Use Code: "'..Code2..'"', Desc2, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code2, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code2, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code2)
 end)
 
 HomeTab.newButton('Use Code: "'..Code3..'"', Desc3, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code3, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code3, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code3)
 end)
 
 HomeTab.newButton('Use Code: "'..Code4..'"', Desc4, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code4, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code4, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code4)
 end)
 
 HomeTab.newButton('Use Code: "'..Code5..'"', Desc5, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code5, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code5, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code5)
 end)
 
 HomeTab.newButton('Use Code: "'..Code6..'"', Desc6, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code6, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code6, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code6)
 end)
 
 HomeTab.newButton('Use Code: "'..Code7..'"', Desc7, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code7, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code7, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code7)
 end)
 
 HomeTab.newButton('Use Code: "'..Code8..'"', Desc8, function()
-    BoredLibrary.prompt("Sakura Hub  🌸", "Used: "..Code8, 1.5)
+    BoredLibrary.prompt("Giaogui Hub  🌸", "Used: "..Code8, 1.5)
     game:GetService("ReplicatedStorage"):WaitForChild("GlobalUsedRemotes"):WaitForChild("EnterCode"):FireServer(Code8)
 end)
 
 HomeTab.newLabel("Server Hop Scripts   🌐");
 HomeTab.newButton("Auto Find The Arbiter   🌟  (SCRIPT LOST)","",function()
     setclipboard("https://github.com/Lvl9999/TheArbiter/tree/main");
-    BoredLibrary.prompt("Sakura Hub  🌸","Copied to clipboard",0.5);
+    BoredLibrary.prompt("Giaogui Hub  🌸","Copied to clipboard",0.5);
 end)
 
 HomeTab.newButton("Auto Find Space Curse   ☄️  (SCRIPT LOST)","",function()
     setclipboard("https://github.com/Lvl9999/SpaceCurse/tree/main");
-    BoredLibrary.prompt("Sakura Hub  🌸","Copied to clipboard",0.5);
+    BoredLibrary.prompt("Giaogui Hub  🌸","Copied to clipboard",0.5);
 end)
 
 HomeTab.newButton("Auto One For All Finder   🦸  (PATCHED + SCRIPT LOST)","",function()
     --setclipboard("https://github.com/Lvl9999/OneForAll/tree/main");
-    BoredLibrary.prompt("Sakura Hub  🌸","Patched, Wait for fix",0.5);
+    BoredLibrary.prompt("Giaogui Hub  🌸","Patched, Wait for fix",0.5);
 end)
 
 HomeTab.newLabel("Quick Scripts   🚀");
 HomeTab.newButton("Animation Grabber","",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/utils/AnimGrabber"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/utils/AnimGrabber.lua"))();
 end)
 
 HomeTab.newButton("Infinite Yield","",function()
@@ -5797,19 +5797,19 @@ HomeTab.newButton("Teleport Maker","",function()
     loadstring(game:HttpGet("https://pastebin.com/raw/GSgUCJmq"))();
 end)
 
-HomeTab.newLabel("Sakura Hub Stuff  🌸");
+HomeTab.newLabel("Giaogui Hub Stuff  🌸");
 HomeTab.newButton("Official Discord Server (Click To Copy To Clipboard)","",function()
     setclipboard("https://discord.gg/XcUFRW4DWH");
-    BoredLibrary.prompt("Sakura Hub  🌸","Copied to clipboard",0.5);
+    BoredLibrary.prompt("Giaogui Hub  🌸","Copied to clipboard",0.5);
 end)
 
-HomeTab.newToggle("Sakura Hub, Go Rainbow Please","",getgenv().AutoGoingRainbow or false,function(Value)
+HomeTab.newToggle("Giaogui Hub, Go Rainbow Please","",getgenv().AutoGoingRainbow or false,function(Value)
     getgenv().AutoGoingRainbow = Value
     getgenv().UsingRainbowUI();
 end)
 
-HomeTab.newButton("Sakura Hub / [Recode] Changelogs GUI (Lost / Not Done)","",function()
-    task.spawn(function()BoredLibrary.prompt("Sakura Hub  🌸","Loading Changelogs...",0.75);end)
+HomeTab.newButton("Giaogui Hub / [Recode] Changelogs GUI (Lost / Not Done)","",function()
+    task.spawn(function()BoredLibrary.prompt("Giaogui Hub  🌸","Loading Changelogs...",0.75);end)
 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lvl9999/SakuraStand/main/Changelogs"))();
     getgenv().ChangelogLabel("Recent Changes: (Version 1.2989)");
@@ -5895,8 +5895,8 @@ HomeTab.newButton("Sakura Hub / [Recode] Changelogs GUI (Lost / Not Done)","",fu
     ----------------------------------------------------------------------------------------------------
 end)
 
-HomeTab.newButton("Reload Sakura Hub","",function()
-    task.spawn(function()BoredLibrary.prompt("Sakura Hub  🌸","Reloading Hub...",0.75);end)
+HomeTab.newButton("Reload Giaogui Hub","",function()
+    task.spawn(function()BoredLibrary.prompt("Giaogui Hub  🌸","Reloading Hub...",0.75);end)
     getgenv().SakuraHub = "https://raw.githubusercontent.com/Lvl9999/SakuraStand/main/SakuraHub";
 
     pcall(function()
@@ -5904,17 +5904,17 @@ HomeTab.newButton("Reload Sakura Hub","",function()
     end)
 end)
 
-HomeTab.newButton("Goodbye Sakura Hub   👋","",function()
+HomeTab.newButton("Goodbye Giaogui Hub   👋","",function()
     task.spawn(function()pcall(function()getgenv().Configurations();game:GetService("CoreGui").DrRay:Destroy();end);end);
-    BoredLibrary.prompt("Sakura Hub  🌸","Goodbye :)",0.5);
+    BoredLibrary.prompt("Giaogui Hub  🌸","Goodbye :)",0.5);
 end)
 
-HomeTab.newLabel("Sakura Hub Configs   ⚙️");
-HomeTab.newButton("Save Sakura Hub Config","",function()
+HomeTab.newLabel("Giaogui Hub Configs   ⚙️");
+HomeTab.newButton("Save Giaogui Hub Config","",function()
     getgenv().SaveConfigurations();
 end)
 
-HomeTab.newButton("Reset Sakura Hub Config","",function()
+HomeTab.newButton("Reset Giaogui Hub Config","",function()
     task.spawn(function()getgenv().Configurations();getgenv().ResetConfigurations();end)
     getgenv().SakuraHub = "https://raw.githubusercontent.com/Lvl9999/SakuraStand/main/SakuraHub";
 
@@ -5932,7 +5932,7 @@ HomeTab.newInput("Report Bugs / Feedback","Type here anything you want me to kno
             local data = {content = "",embeds = {{author = {name = (getgenv().PrivacyMode == true and "Unknown") or game.Players.LocalPlayer.Name,},title = "Reported:",description = getgenv().Message,type = "rich",color = tonumber(0xff0000),footer = {text = string.format("Reported at %s",os.date("%Y-%m-%d %X"))}}}};
             local request = http_request or request or HttpPost or syn.request;
             request({Url = getgenv().WebHook,Body = game:GetService("HttpService"):JSONEncode(data),Method = "POST",Headers = {["content-type"] = "application/json"}});
-            BoredLibrary.prompt("Sakura Hub  🌸","Message Sent   ✅",1.5);
+            BoredLibrary.prompt("Giaogui Hub  🌸","Message Sent   ✅",1.5);
         end
     end)
 end)
@@ -5940,7 +5940,7 @@ end)
 HomeTab.newButton("Hide your username (Use Before Typing, Optional)","",function()
     if not getgenv().HidedName == true then getgenv().HidedName = true
         getgenv().PrivacyMode = true;
-        BoredLibrary.prompt("Sakura Hub  🌸","Hided Your Name   ✅",1.5);
+        BoredLibrary.prompt("Giaogui Hub  🌸","Hided Your Name   ✅",1.5);
     end
 end)
 
@@ -6152,7 +6152,7 @@ local FarmingTab = DrRayLibrary.newTab("Farming","http://www.roblox.com/asset/?i
 
 FarmingTab.newLabel("Weekly Reminder   📅");
 FarmingTab.newButton("Read This (Very Important)","",function()
-    BoredLibrary.prompt("Sakura Hub   🌸","Use one teleport toggle at a time!",1.5);
+    BoredLibrary.prompt("Giaogui Hub   🌸","Use one teleport toggle at a time!",1.5);
     task.spawn(function()
         local Grrr = "http://www.roblox.com/asset/?id=8603227350";
         local Sound = Instance.new("Sound");
@@ -6163,7 +6163,7 @@ FarmingTab.newButton("Read This (Very Important)","",function()
         Sound.Archivable = false;
         Sound.Parent = game.Workspace
         Sound:Play();
-    end)BoredLibrary.prompt("Sakura Hub   🌸","Dont ask me about Menos  😡😡😡",2.5);task.wait(1.85);
+    end)BoredLibrary.prompt("Giaogui Hub   🌸","Dont ask me about Menos  😡😡😡",2.5);task.wait(1.85);
     task.spawn(function()
         local Drip = "http://www.roblox.com/asset/?id=6820466812";
         local Sound = Instance.new("Sound");
@@ -6209,7 +6209,7 @@ FarmingTab.newButton("Equip Shinra Kusakabe (Best for Private Server Autofarm)",
                 end
             end
         else
-            task.spawn(function()BoredLibrary.prompt("Sakura Hub   🌸","You are Already Shinra Kusakabe",0.5);end);
+            task.spawn(function()BoredLibrary.prompt("Giaogui Hub   🌸","You are Already Shinra Kusakabe",0.5);end);
         end
     end)
 end)
@@ -6246,7 +6246,7 @@ FarmingTab.newLabel("Auto Farming Items + Auto Farming Bosses / Mobs   💤");
 FarmingTab.newButton("Quick Explanation (Open F9 Console)","",function()
     pcall(function()
         game:GetService("VirtualInputManager"):SendKeyEvent(true,"F9",false,game);
-        BoredLibrary.prompt("Sakura Hub 🌸","Open F9 Console",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Open F9 Console",1.5);
         warn("---------------[Auto Farming]---------------");
         print("This script allows u to get levels and items faster than usual.");
         print("You can one shot mobs by grabbing them.");
@@ -6299,7 +6299,7 @@ FarmingTab.newLabel("Auto Alt Exp Farming   🔥  [Private Servers Only]");
 FarmingTab.newButton("Quick Explanation (Open F9 Console)","",function()
     pcall(function()
         game:GetService("VirtualInputManager"):SendKeyEvent(true,"F9",false,game);
-        BoredLibrary.prompt("Sakura Hub 🌸","Open F9 Console",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Open F9 Console",1.5);
         warn("---------------[Alt Exp Farming]---------------");
         print("This script is multiple times faster than both autofarm variants (Public / Private).");
         print("This script allows u to get masteries / fingers / masks really fast.");
@@ -6357,7 +6357,7 @@ FarmingTab.newLabel("-----------------------------------------------------------
 FarmingTab.newToggle("Start Farming (Without Support)","This account will do everything solo (In Development)",getgenv().AutoFarmDekuSolo or false,function(Value)
     -- getgenv().AutoFarmDekuSolo = Value
     -- getgenv().UsingDekuFarmSolo();
-    BoredLibrary.prompt("Sakura Hub 🌸","Not done yet, wait for the next update !",1.5);
+    BoredLibrary.prompt("Giaogui Hub 🌸","Not done yet, wait for the next update !",1.5);
 end)
 
 -- FarmingTab.newToggle("Start Farming (Main Account)","This account will be kill bosses",getgenv().AutofarmOnDeku1 or false,function(Value)
@@ -6388,7 +6388,7 @@ FarmingTab.newToggle("Auto Steal One For All (Requires Standless)","",getgenv().
     getgenv().AutoStealingOfa = Value
 
     if getgenv().AutoStealingOfa == true then
-        BoredLibrary.prompt("Sakura Hub 🌸","Patched, Wait for fix.",1.5);
+        BoredLibrary.prompt("Giaogui Hub 🌸","Patched, Wait for fix.",1.5);
     end
     --getgenv().StealingOneForAll();
 end)
@@ -6669,7 +6669,7 @@ AreasTab.newButton("Bird","",function()
         if game:GetService("Workspace").Effects:FindFirstChild("Bird") then
             getgenv().PlaySound();game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Effects:FindFirstChild("Bird").PrimaryPart.CFrame;
         else
-            BoredLibrary.prompt("Sakura Hub   🌸","The bird isn't here :(",1);
+            BoredLibrary.prompt("Giaogui Hub   🌸","The bird isn't here :(",1);
         end
     end)
 end)
