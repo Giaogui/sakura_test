@@ -17,11 +17,7 @@ getgenv().Aimlock = false
 getgenv().InstaKill = false
 getgenv().TPBehind = false
 
--- ===== LOAD FEATURES =====
-local Combat = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/Giaogui/sakura_test/main/features_combat.lua"
-))()
-warn("Combat module loaded:", Combat)
+https://raw.githubusercontent.com/Giaogui/sakura_test/main/main/features_combat.lua
 
 -- ===== MODERN SAKURA-STYLE UI =====
 
