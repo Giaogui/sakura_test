@@ -1,4 +1,4 @@
--- Giaogui Clean Loader (BOM-SAFE, FINAL)
+-- Giaogui Clean Loader (FINAL, SYNTAX-SAFE)
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
@@ -29,7 +29,7 @@ local COMBAT_URL =
 local src = game:HttpGet(COMBAT_URL)
 assert(type(src) == "string" and #src > 10, "HttpGet failed")
 
--- 🔥 STRIP UTF-8 BOM (THIS IS THE FIX)
+-- strip UTF-8 BOM if present
 if src:sub(1,3) == "\239\187\191" then
     src = src:sub(4)
 end
@@ -60,6 +60,7 @@ Main.Draggable = true
 Instance.new("UICorner", Main).CornerRadius = UDim.new(0,12)
 Instance.new("UIStroke", Main).Color = Color3.fromRGB(90,90,120)
 
+-- ===== TITLE =====
 local Title = Instance.new("TextLabel", Main)
 Title.Size = UDim2.new(1, -20, 0, 40)
 Title.Position = UDim2.new(0, 10, 0, 10)
@@ -68,8 +69,9 @@ Title.Text = "Giaogui | Rebuild"
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 22
 Title.TextColor3 = Color3.fromRGB(220,220,255)
-Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.TextXAlignment = Enum.TextXAlignment.Left -- ✅ FIXED
 
+-- ===== CONTENT =====
 local Content = Instance.new("Frame", Main)
 Content.Size = UDim2.new(1, -20, 1, -70)
 Content.Position = UDim2.new(0, 10, 0, 60)
@@ -96,6 +98,7 @@ local function Toggle(text, callback)
     end)
 end
 
+-- ===== TOGGLES =====
 Toggle("Aimlock", Combat.ToggleAimlock)
 Toggle("Insta Kill", Combat.ToggleInstaKill)
 Toggle("TP Punch", Combat.ToggleTPBehind)
