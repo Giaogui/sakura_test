@@ -5897,7 +5897,7 @@ end)
 
 HomeTab.newButton("Reload Giaogui Hub","",function()
     task.spawn(function()BoredLibrary.prompt("Giaogui Hub  🌸","Reloading Hub...",0.75);end)
-    getgenv().SakuraHub = "https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/loader.lua";
+    getgenv().SakuraHub = "https://raw.githubusercontent.com/Lvl9999/SakuraStand/main/SakuraHub";
 
     pcall(function()
         getgenv().Configurations();loadstring(game:HttpGet(getgenv().SakuraHub))();
@@ -5916,7 +5916,7 @@ end)
 
 HomeTab.newButton("Reset Giaogui Hub Config","",function()
     task.spawn(function()getgenv().Configurations();getgenv().ResetConfigurations();end)
-    getgenv().SakuraHub = "https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/loader.lua";
+    getgenv().SakuraHub = "https://raw.githubusercontent.com/Lvl9999/SakuraStand/main/SakuraHub";
 
     pcall(function()
         getgenv().Configurations();loadstring(game:HttpGet(getgenv().SakuraHub))();
