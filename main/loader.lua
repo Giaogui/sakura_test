@@ -1,7 +1,10 @@
--- Giaogui Clean Loader (Stage 1)
+-- Giaogui Clean Loader (STABLE FULL FILE)
 
-if not game:IsLoaded() then game.Loaded:Wait() end
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 
+-- ===== SERVICES =====
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local CoreGui = game:GetService("CoreGui")
@@ -17,9 +20,26 @@ getgenv().Aimlock = false
 getgenv().InstaKill = false
 getgenv().TPBehind = false
 
-https://raw.githubusercontent.com/Giaogui/sakura_test/main/main/features_combat.lua
+-- =====================================================
+-- ===== LOAD COMBAT FEATURES (SAFE, NO NIL CALLS) =====
+-- =====================================================
+local COMBAT_URL =
+    "https://raw.githubusercontent.com/Giaogui/sakura_test/main/main/features_combat.lua"
 
--- ===== MODERN SAKURA-STYLE UI =====
+local src = game:HttpGet(COMBAT_URL)
+assert(type(src) == "string" and #src > 10, "HttpGet failed for features_combat.lua")
+
+local fn = loadstring(src)
+assert(type(fn) == "function", "loadstring failed for features_combat.lua")
+
+local Combat = fn()
+assert(type(Combat) == "table", "Combat module did not return a table")
+
+warn("Combat module loaded:", Combat)
+
+-- ===============================
+-- ===== MODERN SAKURA UI ========
+-- ===============================
 
 local Gui = Instance.new("ScreenGui", CoreGui)
 Gui.Name = "GiaoguiUI"
@@ -32,7 +52,6 @@ Main.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
 Main.BorderSizePixel = 0
 Main.Active = true
 Main.Draggable = true
-Main.Name = "Main"
 
 local Corner = Instance.new("UICorner", Main)
 Corner.CornerRadius = UDim.new(0, 12)
@@ -50,9 +69,9 @@ Title.Text = "Giaogui | Rebuild"
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 22
 Title.TextColor3 = Color3.fromRGB(220, 220, 255)
-Title.TextXAlignment = Left
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
--- ===== TAB BUTTONS =====
+-- ===== TABS =====
 local Tabs = Instance.new("Frame", Main)
 Tabs.Size = UDim2.new(0, 140, 1, -70)
 Tabs.Position = UDim2.new(0, 10, 0, 60)
@@ -77,7 +96,7 @@ local CombatLayout = Instance.new("UIListLayout", CombatTab)
 CombatLayout.Padding = UDim.new(0, 8)
 
 -- ===== HELPERS =====
-local function CreateTabButton(name, onClick)
+local function CreateTabButton(name, callback)
     local b = Instance.new("TextButton", Tabs)
     b.Size = UDim2.new(1, 0, 0, 36)
     b.Text = name
@@ -90,7 +109,7 @@ local function CreateTabButton(name, onClick)
     local c = Instance.new("UICorner", b)
     c.CornerRadius = UDim.new(0, 8)
 
-    b.MouseButton1Click:Connect(onClick)
+    b.MouseButton1Click:Connect(callback)
     return b
 end
 
@@ -116,7 +135,7 @@ local function CreateToggle(parent, text, callback)
     end)
 end
 
--- ===== TAB LOGIC =====
+-- ===== TAB BUTTON =====
 CreateTabButton("Combat", function()
     CombatTab.Visible = true
 end)
