@@ -199,8 +199,8 @@ for i,v in ipairs(game:GetService("Lighting"):GetChildren()) do
 end
 
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
-local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/DrayLib.lua"))();
-local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/T1k-T1k/SakuraHub_RECODE/refs/heads/main/UILibs/BoredLib_Giaogui.lua"))();
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/DrayLib_Giaogui.lua"))();
+local BoredLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giaogui/sakura_test/refs/heads/main/UILibs/BoredLib_Giaogui.lua"))();
 -----------------------------------------------------[[ Main Ui Libs ]]------------------------------------------------------
 
 getgenv().StartLoading = function(z)
